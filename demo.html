@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://use.typekit.net/ipc2rma.css">
+    <title>Página Institucional</title>
+    <!-- Se você preferir usar o seu arquivo CSS externo, descomente a linha abaixo: -->
+    <!-- <link rel="stylesheet" href="IMGs/demo.css"> -->
+    <style>
+        /* Zera as margens padrão do navegador */
+        body, html {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            overflow-x: hidden; /* Evita a barra de rolagem horizontal por causa do texto em movimento */
+        }
+
+        /* 1. SEÇÃO DO HEADER SOBREPOSTO AO BANNER */
+        .secao-banner {
+            position: relative;
+            width: 100%;
+        }
+
+        .banner-fundo {
+            width: 100%;
+            display: block;
+        }
+
+        .header-sobreposto {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 10;
+        }
+
+        /* Classes gerais para as imagens e vídeos seguintes ocuparem 100% da tela */
+        .conteudo-tela-cheia {
+            width: 100%;
+            display: block;
+        }
+
+        /* 2. SEÇÃO DA IMAGEM 02 COM TEXTO SOBREPOSTO */
+        .secao-imagem-texto {
+            position: relative; /* Transforma a seção em base para o texto absoluto */
+            width: 100%;
+        }
+
+        .container-letreiro-sobreposto {
+            position: absolute;
+            top: 30px; /* Margem superior de 20px em relação ao topo da imagem */
+            left: 0;
+            width: 100%;
+            z-index: 10;
+            white-space: nowrap;
+            pointer-events: none; /* Evita que o texto bloqueie o clique na imagem de fundo, se necessário */
+            
+            /* Máscara de opacidade: 20% nas bordas e 100% no meio */
+            -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,0.2) 0%, rgba(0,0,0,1) 25%, rgba(0,0,0,1) 75%, rgba(0,0,0,0.2) 100%);
+            mask-image: linear-gradient(to right, rgba(0,0,0,0.2) 0%, rgba(0,0,0,1) 25%, rgba(0,0,0,1) 75%, rgba(0,0,0,0.2) 100%);
+        }
+
+        .texto-loop {
+            display: inline-block;
+          font-family: proxima-nova, sans-serif;
+            font-weight: 100;
+            font-style: normal;
+            font-size: 300%; /* Ajuste o tamanho da letra aqui se precisar */            
+            color: #ffffff; /* Cor branca */
+            /* Se achar que o texto precisa de sombra para ler melhor na imagem, descomente a linha abaixo: */
+            /* text-shadow: 2px 2px 4px rgba(0,0,0,0.5); */
+            animation: rolarTexto 15s linear infinite; 
+        }
+
+        @keyframes rolarTexto {
+            0% {
+                transform: translateX(100vw); /* Começa fora da tela na direita */
+            }
+            100% {
+                transform: translateX(-100%); /* Termina fora da tela na esquerda */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. Header sobreposto de BANNER.mp4 -->
+    <section class="secao-banner">
+        <!-- Vídeo de Fundo -->
+        <video class="banner-fundo" autoplay loop muted>
+            <source src="IMGs/BANNER.mp4" type="video/mp4">
+            Seu navegador não suporta a tag de vídeo.
+        </video>
+        <!-- Header por cima -->
+        <img class="header-sobreposto" src="IMGs/HEADER.png" alt="Cabeçalho da página">
+    </section>
+
+    <!-- 2. Home-Institucional_02.png com texto rodando em loop por cima -->
+    <section class="secao-imagem-texto">
+        <img class="conteudo-tela-cheia" src="IMGs/SLICES/Home-Institucional_02.png" alt="Institucional 02">
+        
+        <!-- Contêiner do letreiro posicionado a 20px do topo desta imagem -->
+        <div class="container-letreiro-sobreposto">
+            <span class="texto-loop">UM NOVO CONCEITO EM MERCADO ÓTICO. </span>
+        </div>
+    </section>
+
+    <!-- 3. video_institucional.mp4 -->
+    <section>
+        <video class="conteudo-tela-cheia" autoplay loop muted>
+            <source src="IMGs/video_institucional.mp4" type="video/mp4">
+            Seu navegador não suporta a tag de vídeo.
+        </video>
+    </section>
+
+    <!-- 4. Home-Institucional_04.png (está dentro da pasta SLICES) -->
+    <section>
+        <img class="conteudo-tela-cheia" src="IMGs/SLICES/Home-Institucional_04.png" alt="Institucional 04">
+    </section>
+
+</body>
+</html>
